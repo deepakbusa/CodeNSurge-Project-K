@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>News Website Evolution</title>
+  <!-- Google Fonts for a modern look -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Header Section -->
+  <header>
+    <div class="navbar">
+      <div class="logo">News<span>Hub</span></div>
+      <div class="search-bar">
+        <input type="text" placeholder="Search news...">
+        <button>Search</button>
+      </div>
+      <div class="user-actions">
+        <button class="login-btn">Login</button>
+        <button class="signup-btn">Signup</button>
+      </div>
+    </div>
+    <nav class="categories">
+      <a href="weather.html">Weather</a> <!-- Updated link -->
+      <a href="stocks.html">Stocks</a>
+      <a href="#">Entertainment</a>
+      <a href="#">Technology</a>
+      <a href="#">Business</a>
+    </nav>
+  </header>
+
+  <!-- Main Banner Section with Carousel -->
+  <section class="main-banner">
+    <div class="carousel">
+      <div class="carousel-item active">
+        <img src="Event.jpg" alt="Top News 1">
+        <div class="carousel-caption">
+          <h2>Top News 1: Project K Team Attended "CODE N' SURGE HACKATHON"</h2>
+          <p>Our team project K successfully attended the hackathon in SIMATS Engineering</p>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="https://via.placeholder.com/1200x400" alt="Top News 2">
+        <div class="carousel-caption">
+          <h2>Top News 2: Another Headline</h2>
+          <p>Summary of another important news article.</p>
+        </div>
+      </div>
+      <!-- Add more carousel items as needed -->
+      <button class="prev">&#10094;</button>
+      <button class="next">&#10095;</button>
+    </div>
+  </section>
+
+  <!-- News Grid Section -->
+  <section class="news-grid">
+    <h2>Latest News</h2>
+    <div class="news-cards">
+      <div class="news-card">
+        <img src="https://via.placeholder.com/300x200" alt="News 1">
+        <h3>Headline for News 1</h3>
+        <p>Brief summary for news 1...</p>
+        <a href="#" class="btn">Read More</a>
+      </div>
+      <div class="news-card">
+        <img src="https://via.placeholder.com/300x200" alt="News 2">
+        <h3>Headline for News 2</h3>
+        <p>Brief summary for news 2...</p>
+        <a href="#" class="btn">Read More</a>
+      </div>
+      <!-- Add more news cards as needed -->
+    </div>
+  </section>
+
+
+  <aside class="sidebar">
+    <div class="top-news">
+      <h3>Top News</h3>
+      <ul>
+        <li><a href="#">Top News Article 1</a></li>
+        <li><a href="#">Top News Article 2</a></li>
+        <!-- Add more top news links as needed -->
+      </ul>
+    </div>
+    <div class="categories">
+      <h3>Categories</h3>
+      <ul>
+        <li><a href="weather.html">Weather</a></li> <!-- Updated link -->
+        <li><a href="stocks.html">Stocks</a></li>
+        <li><a href="#">Entertainment</a></li>
+        <!-- Add more categories -->
+      </ul>
+    </div>
+  </aside>
+
+
+  <footer>
+    <p>&copy; 2024@NewsHub. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

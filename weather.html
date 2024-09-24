@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Updates | NewsHub</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f2f5;
+    color: #333;
+  }
+  
+  header {
+    background-color: #1f2937;
+    color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+        /* Navbar */
+        .navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 30px;
+    align-items: center;
+  }
+  
+  .navbar .logo {
+    font-size: 1.8em;
+    font-weight: bold;
+    color: #ffd700;
+  }
+  
+  .search-bar input {
+    padding: 10px;
+    width: 250px;
+    border-radius: 20px;
+    border: 1px solid #ddd;
+  }
+  
+  .search-bar button {
+    padding: 10px 15px;
+    margin-left: 10px;
+    background-color: #0ea5e9;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+  }
+  
+  .search-bar button:hover {
+    background-color: #0369a1;
+  }
+  
+  .user-actions button {
+    margin-left: 10px;
+    padding: 10px 15px;
+    background-color: #22c55e;
+    border: none;
+    border-radius: 20px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .user-actions button:hover {
+    background-color: #16a34a;
+  }
+  
+  /* Navbar Categories */
+  nav.categories {
+    display: flex;
+    justify-content: center;
+    padding: 15px;
+    background: linear-gradient(to right, #f97316, #f59e0b);
+  }
+  
+  nav.categories a {
+    color: #fff;
+    text-decoration: none;
+    padding: 12px 30px;
+    font-weight: bold;
+    border-radius: 30px;
+    transition: background-color 0.3s ease;
+  }
+  
+  nav.categories a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+
+        /* Weather Section */
+        .weather-section {
+            padding: 40px 0;
+            background-color: #fff;
+            text-align: center;
+        }
+        .weather-section h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+        .weather-section p {
+            color: #666;
+            margin-bottom: 30px;
+        }
+        .search-box {
+            margin-bottom: 20px;
+        }
+        .search-box input {
+            padding: 10px;
+            width: 300px;
+            font-size: 16px;
+        }
+        .search-box button {
+            padding: 10px 15px;
+            font-size: 16px;
+            background-color: #333;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        .weather-info {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+        }
+        .weather-box {
+            text-align: center;
+            margin-right: 30px;
+        }
+        .weather-box img {
+            width: 100px;
+            height: 100px;
+        }
+        .temperature {
+            font-size: 36px;
+            margin-top: 10px;
+        }
+        .description {
+            font-size: 18px;
+            color: #777;
+        }
+        .weather-details {
+            text-align: left;
+        }
+        .weather-details p {
+            margin: 10px 0;
+            font-size: 18px;
+        }
+
+        .not-found {
+            text-align: center;
+            margin-top: 20px;
+            display: none;
+        }
+        .not-found img {
+            width: 100px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="navbar">
+            <div class="logo">News<span>Hub</span></div>
+            <div class="search-bar">
+                <input type="text" placeholder="Search news...">
+                <button>Search</button>
+            </div>
+            <div class="user-actions">
+                <button class="login-btn">Login</button>
+                <button class="signup-btn">Signup</button>
+            </div>
+        </div>
+        <nav class="categories">
+            <a href="index.html">Home</a>
+            <a href="weather.html">Weather</a>
+            <a href="stocks.html">Stocks</a>
+            <a href="entertainment.html">Entertainment</a>
+            <a href="#">Technology</a>
+            <a href="#">Business</a>
+        </nav>
+    </header>
+    <div class="container">
+        <div class="search-box">
+            <i class="fa-solid fa-location-dot"></i>
+            <input type="text" placeholder="Enter your location" id="id_of_textbox">
+            <button class="fa-solid fa-magnifying-glass" id="id_of_button"></button>
+        </div>
+
+        <div class="not-found">
+            <img src="images/404.png">
+            <p>Oops! Invalid location :/</p>
+        </div>
+
+        <div class="weather-box">
+            <img src="default-weathe.jpeg">
+            <p class="temperature"></p>
+            <p class="description"></p>
+        </div>
+
+        <div class="weather-details">
+            <div class="humidity">
+                <i class="fa-solid fa-water"></i>
+                <div class="text">
+                    <span></span>
+                    <p>Humidity</p>
+                </div>
+            </div>
+            <div class="wind">
+                <i class="fa-solid fa-wind"></i>
+                <div class="text">
+                    <span></span>
+                    <p>Wind Speed</p>
+                </div>
+            </div>
+
+            <div class="pressure-details">
+                <i class="fa-solid 
+            fa-arrow-down-up-across-line"></i>
+                <div class="text">
+                    <span></span>
+                    <p>Pressure</p>
+                </div>
+            </div>
+
+            <div class="visiblity-details">
+                <i class="fa-regular fa-eye"></i>
+                <div class="text">
+                    <span></span>
+                    <p>Visiblity</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <script src="https://kit.fontawesome.com/7c8801c017.js" crossorigin="anonymous"></script>
+
+    <script>
+        document.getElementById("id_of_textbox")
+            .addEventListener("keyup", function (event) {
+                event.preventDefault();
+                if (event.keyCode === 13) {
+                    document.getElementById("id_of_button").click();
+                }
+            });
+
+            const container = document.querySelector('.container');
+const search = document.querySelector('.search-box button');
+const weatherBox = document.querySelector('.weather-box');
+const weatherDetails = document.querySelector('.weather-details');
+const error404 = document.querySelector('.not-found');
+
+search.addEventListener('click', async() => {
+
+    const APIKey = '728b0ee6df5687559812bd3169ad77b7';
+    const city = document.querySelector('.search-box input').value;
+
+    if (city === '')
+        return;
+
+        const data=await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=ea7f865aa1d63d118942e1db48658289`);
+
+   let fdata=await data.json();
+   console.log(fdata);
+
+   const{main:WeatherCondition}=fdata.weather[0];
+    
+
+            if (fdata.cod === '404') {
+                container.style.height = '400px';
+                weatherBox.style.display = 'none';
+                weatherDetails.style.display = 'none';
+                error404.style.display = 'block';
+                error404.classList.add('fadeIn');
+                return;
+            }
+
+            error404.style.display = 'none';
+            error404.classList.remove('fadeIn');
+
+            const image = document.querySelector('.weather-box img');
+            const temperature = document.querySelector('.weather-box .temperature');
+            const description = document.querySelector('.weather-box .description');
+            const humidity = document.querySelector('.weather-details .humidity span');
+            const wind = document.querySelector('.weather-details .wind span');
+            const pressure = document.querySelector(
+                ".weather-details .pressure-details span"
+            );
+            const visiblity = document.querySelector(
+                ".weather-details .visiblity-details span"
+            );
+
+            switch (WeatherCondition) {
+                case 'Clear':
+                    image.src = 'images/clear.png';
+                    break;
+
+                case 'Rain':
+                    image.src = 'images/rain.png';
+                    break;
+
+                case 'Snow':
+                    image.src = 'images/snow.png';
+                    break;
+
+                case 'Clouds':
+                    image.src = 'images/cloud.png';
+                    break;
+
+                case 'Haze':
+                    image.src = 'images/mist.png';
+                    break;
+
+                case 'Mist':
+                    image.src = 'images/mist2.png';
+                    break;
+
+                case 'Smoke':
+                    image.src = 'images/smoke.png';
+                    break;
+
+                case 'Sand':
+                    image.src = 'images/sand.png';
+                    break;
+
+                case 'Sand':
+                    image.src = 'images/dust.png';
+                    break;
+
+                default:
+                    image.src = '';
+            }
+
+            temperature.innerHTML = `${parseInt(fdata.main.temp)}<span>°C</span>`;
+            description.innerHTML = `${fdata.weather[0].description}`;
+            humidity.innerHTML = `${fdata.main.humidity}%`;
+            wind.innerHTML = `${parseInt(fdata.wind.speed)}Km/h`;
+            pressure.innerHTML = `${fdata.main.pressure}
+            mb`;
+            visiblity.innerHTML = `${fdata.visibility / 
+            1000}km`;
+
+            weatherBox.style.display = '';
+            weatherDetails.style.display = '';
+            weatherBox.classList.add('fadeIn');
+            weatherDetails.classList.add('fadeIn');
+            container.style.height = '590px';
+
+});
+    </script>
+</body>
+
+</html>
